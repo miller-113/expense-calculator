@@ -21,7 +21,7 @@ function CostItemConteiner(){
     ]
     return (
         <Card className="costs">
-            {costs.map(el => <CostItem props={el}/>)}
+            {costs.map((el, ind) => <CostItem key={ind} props={el}/>)}
         </Card>
     )
 }
