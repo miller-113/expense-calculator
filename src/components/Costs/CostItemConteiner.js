@@ -1,28 +1,21 @@
 import Card from "../UI/Card";
-import CostItem from "./CostItem";
+import { CostFilter } from "./CostFilter";
 import './CostItemConteiner.css'
-function CostItemConteiner(){
-    const costs = [
-        {
-            date: new Date(2022, 2, 12),
-            description: "Холодильник",
-            amount: 999.99
-        },
-        {
-            date: new Date(2022, 4, 8),
-            description: "Телевизор",
-            amount: 499.99
-        },
-        {
-            date: new Date(2022, 3, 20),
-            description: "Микроволновка",
-            amount: 239
-        },
-    ]
+import { useState } from "react";
+import { CostList } from "./CostList";
+
+function CostItemConteiner({costs}){
+    const [selectedYear, setSelectedYear] = useState('')
+    const getYearInputHandler = (e) => setSelectedYear(e.target.value);
+    
+    const filteredCosts = costs.filter(cost => cost.date.getFullYear() == selectedYear);    
+    
     return (
         <Card className="costs">
-            {costs.map((el, ind) => <CostItem key={ind} props={el}/>)}
+            <CostFilter year={selectedYear} onChangeYear={getYearInputHandler}/>
+            <CostList filteredCosts={filteredCosts}/>
         </Card>
+
     )
 }
 

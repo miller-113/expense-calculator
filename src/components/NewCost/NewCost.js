@@ -2,13 +2,13 @@ import CostForm from './CostForm';
 import './NewCost.css';
 
 
-const NewCost = () => {
+const NewCost = ({onAddCost}) => {
     const saveCostDataHandler = (inputCostData) => {
         const costData = {
             ...inputCostData,
             id: Math.random().toString()
         };
-        console.log(inputCostData)
+        onAddCost(costData)
     }
     return (
         <div className='new-cost'>
