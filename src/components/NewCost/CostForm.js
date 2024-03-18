@@ -45,6 +45,7 @@ const CostForm = (props) => {
                     <button type='submit'>
                         Добавить Расход
                     </button>
+                    <button onClick={props.onCostDataSetFalse} type='button'>Отмена</button>
                 </div>
             </div>
         </form>

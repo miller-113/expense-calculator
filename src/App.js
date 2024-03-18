@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import CostItemConteiner from "./components/Costs/CostItemConteiner";
 import NewCost from "./components/NewCost/NewCost";
-
+import './index.css'
 const INITIAL_COSTS = [
     { 
         id: '1',
